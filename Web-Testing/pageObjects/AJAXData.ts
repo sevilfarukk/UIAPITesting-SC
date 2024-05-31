@@ -13,14 +13,15 @@ export default class AJAXData {
         this.text = page.getByText('Data loaded with AJAX get request.')
     }
 
+    //Click the button
     async clickAJAXButton() {
         await this.button.click()
     }
 
-    //WAIT FOR AJAX REQUEST
-    async waitForAJAXRequest(){
-      //  await this.page.waitForLoadState('networkidle');
-        await this.text.waitFor() 
+    //Wait for AJAX request and make the assertion
+    async waitForAJAXRequestAndAssertTheText() {
+        //await this.page.waitForLoadState('networkidle');
+        await this.text.waitFor()
     }
 
 

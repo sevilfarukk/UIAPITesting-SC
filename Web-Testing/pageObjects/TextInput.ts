@@ -12,14 +12,17 @@ export default class TextInput {
         this.textField = page.getByPlaceholder('MyButton')
     }
 
+    //Fill the input field
     async fillInputField() {
         await this.textField.fill("Test")
     }
 
+    //Click the button
     async clickButton() {
         await this.button.click()
     }
 
+    //Assert the button name
     async assertButtonName() {
         await expect(this.page.locator('#updatingButton')).toContainText('Test');
 

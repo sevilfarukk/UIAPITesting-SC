@@ -5,8 +5,8 @@ test.beforeEach(async ({ basePage }) => {
 })
 
 
-test.describe("The aim of this test verify the ProgressBar", async () => {
-    test("ProgressBar", async ({ progressBar }) => {
+test.describe("The aim of this test verify the clicking the stop button when ProgressBar reach to 75%", async () => {
+    test("should click Stop button when ProgressBar reach the 75%", async ({ progressBar }) => {
         await progressBar.clickStart()
         await progressBar.progressBarReach75()
     })

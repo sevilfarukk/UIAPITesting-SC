@@ -5,14 +5,14 @@ test.beforeEach(async ({ basePage }) => {
 })
 
 test.describe("The aim of this test verify the Login functionalities of the Sample APP", async () => {
-    test("Successfull Login", async ({ sampleApp }) => {
+    test("should Login Successfully", async ({ sampleApp }) => {
         await sampleApp.fillUsername()
         await sampleApp.fillPassword()
         await sampleApp.clickLoginButton()
         await sampleApp.assertSuccessfullLogin()
     })
 
-    test("Successfull Log Out", async ({ sampleApp }) => {
+    test("should Logout Successfully", async ({ sampleApp }) => {
         await sampleApp.fillUsername()
         await sampleApp.fillPassword()
         await sampleApp.clickLoginButton()
@@ -20,13 +20,13 @@ test.describe("The aim of this test verify the Login functionalities of the Samp
         await sampleApp.assertSuccessfulLogout
     })
 
-    test("UnSuccessfull Login", async ({ sampleApp }) => {
+    test("shoulb be UnSuccessfull Login", async ({ sampleApp }) => {
         await sampleApp.fillUsername()
         await sampleApp.clickLoginButton()
         await sampleApp.assertInvalidLogin()
     })
 
-    test("Empty Fields", async ({ sampleApp }) => {
+    test("should display warning message when the fields are Empty", async ({ sampleApp }) => {
         await sampleApp.clickLoginButton()
         await sampleApp.assertInvalidLogin()
     })

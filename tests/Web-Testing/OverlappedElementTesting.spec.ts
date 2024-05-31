@@ -5,7 +5,7 @@ test.beforeEach(async ({ basePage }) => {
 })
 
 test.describe("The aim of this test verify the handling with the overlapped Elements", async () => {
-    test("Scrolling into the view and making assertion", async ({ overlappedElement }) => {
+    test("should scroll into the view and making assertion", async ({ overlappedElement }) => {
         await overlappedElement.filltheID()
         await overlappedElement.scrollIntoView()
         await overlappedElement.fillName()

@@ -1,9 +1,6 @@
 import { Locator, Page, expect, request } from "@playwright/test";
 import { api } from "../Utils/ENUM";
 
-let globalpetId: number;
-
-
 export default class PetStoreAPITesting {
 
     //Get the Pets according to the status
@@ -21,7 +18,6 @@ export default class PetStoreAPITesting {
                 expect(pets[0]).toHaveProperty('status');
             }
         } catch (error) {
-            // Handle errors here
             console.error("Error occurred:", error);
         }
     }
@@ -52,7 +48,6 @@ export default class PetStoreAPITesting {
             expect(createdPet.status).toBe(newPet.status);
         }
         catch (error) {
-            // Handle errors here
             console.error("Error occurred:", error);
         }
 
@@ -61,7 +56,7 @@ export default class PetStoreAPITesting {
     //Get the Pet by ID
     async getPetFindByID() {
         try {
-            const petId = "4141414141414141414"; // The ID of the pet added previously
+            const petId = "4141414141414141414";
             const apiContext = await request.newContext();
             const response = await apiContext.get(`${api.BASE_URL}/pet/${petId}`);
 
@@ -72,7 +67,6 @@ export default class PetStoreAPITesting {
             expect(pet).toHaveProperty('name');
             expect(pet).toHaveProperty('status');
         } catch (error) {
-            // Handle errors here
             console.error("Error occurred:", error);
         }
     }
@@ -102,7 +96,6 @@ export default class PetStoreAPITesting {
             expect(pet.photoUrls).toEqual(updatedPet.photoUrls);
             expect(pet.status).toBe(updatedPet.status);
         } catch (error) {
-            // Handle errors here
             console.error("Error occurred:", error);
         }
     }
@@ -110,7 +103,7 @@ export default class PetStoreAPITesting {
     //Delete the Pet
     async deleteThePet() {
         try {
-            const petId = "4141414141414141414"; // The ID of the pet to delete
+            const petId = "4141414141414141414";
             const apiContext = await request.newContext();
             const response = await apiContext.delete(`${api.BASE_URL}/pet/${petId}`);
             expect(response.status()).toBe(200);
@@ -130,11 +123,11 @@ export default class PetStoreAPITesting {
                 message: "Pet not found"
             });
         } catch (error) {
-            // Handle errors here
             console.error("Error occurred:", error);
         }
     }
 
+    //Get the All Store Inventory
     async getAllStoreInventory() {
         try {
             const apiContext = await request.newContext();
